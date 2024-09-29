@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>  
+        {% endfor %}
+    {% endif %}
+    <h1>Register</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <label for="username">Username: </label>
+            <input type="text" name="username">
+        </div>
+        <div class="container">
+            <label for="email">Email: </label>
+            <input type="email" name="signup-email">
+        </div>
+        <div class="container">
+            <label for="signup-password">Password: </label>
+            <input type="password" name="signup-password">
+        </div>
+        <div class="container">
+            <label for="confirm-signup-password">Confirm Password: </label>
+            <input type="password" name="confirm-signup-password">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <span>Already Registered? </span><a href="{% url 'main:Login' %}">Login</a>
+</body>
+</html>

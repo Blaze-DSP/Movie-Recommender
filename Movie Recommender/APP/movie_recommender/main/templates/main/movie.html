@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<body>
+    <div style="text-align: right; padding-right: 10%; float: right;"><a href="{% url 'main:Logout' %}">Logout</a></div>
+    <a href="{% url 'main:Home' %}">Home</a>
+    <h1>{{movie}}</h1>
+    <h3>Genres</h3>
+    <ul>
+        {% for genre in genres %}
+        <li>{{genre}}</li>
+        {% endfor %}
+    </ul>
+    {% if rating %}
+    <h3>Your Rating: {{ rating }}</h3>
+    <form action="" method="post">{% csrf_token %}<button type="submit" name="clear">Clear Rating</button></form><br>
+    <button type="button" id="rate">Change Rating</button>
+    <form action="" method="post" id="rate-movie" style="display: none;">
+        {% csrf_token %}
+        <br>
+        <label for="rating">Rating</label>
+        <input type="" step="0.1" name="rating" min="0" max="5" value="{{rating}}">
+        <button type="submit" name="change">Submit</button>
+    </form>
+    {% else %}
+    <button type="button" id="rate">Rate Movie</button>
+    <form action="" method="post" id="rate-movie" style="display: none;">
+        {% csrf_token %}
+        <br>
+        <label for="rating">Rating</label>
+        <input type="" step="0.1" name="rating" min="0" max="5">
+        <button type="submit" name="rate">Submit</button>
+    </form>
+    {% endif %}
+
+    <h4><a href="{% url 'main:Similar' movie %}">View Similar Movies</a></h4>
+    <script>
+        document.getElementById('rate').addEventListener('click', function(){
+            document.getElementById('rate-movie').style.display = 'block';
+        });
+    </script>    
+</body>
+</html>

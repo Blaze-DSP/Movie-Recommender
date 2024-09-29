@@ -1,0 +1,4 @@
+# Ignore dataset files
+
+movies.csv
+ratings.csv

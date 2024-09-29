@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="flex: 1; padding: 20px;">
+            <h1 style="display: inline; margin-right: 10%;"> Movie Recommender</h1>
+            <h1>Recommended Movies For You</h1>
+            <ul>
+                {% for movie in similar %}
+                <li><a href="{% url 'main:Movies' movie %}">{{movie}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="flex: 1; padding: 20px;">
+            <div style="padding-right: 10%; float: right;"><a href="{% url 'main:Logout' %}">Logout</a></div>
+            <form>
+                <p>Search Movies</p>
+                <input type="text" id="search-input" name="search_term" placeholder="Search"> <span><a href="{% url 'main:Genres' %}"> Search By Genres</a></span>
+            </form>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchInput = document.getElementById('search-input');
+            var searchResultsDiv = document.getElementById('search-results');
+
+            searchInput.addEventListener('input', function () {
+                var searchValue = searchInput.value.trim();
+                if (searchValue.length > 0) {
+                    fetch('/?search_term=' + searchValue)
+                        .then(response => response.json())
+                        .then(data => {
+                            displaySearchResults(data);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching search results:', error);
+                        });
+                } else {
+                    // Clear the search results if search input is empty
+                    searchResultsDiv.innerHTML = '';
+                }
+            });
+
+            function displaySearchResults(results) {
+                // Display search results in the searchResultsDiv
+                var html = '';
+                results.forEach(function (result) {
+                    html += '</br>';
+                    html += '<a href="{% url "main:Movies" title=0 %}">'.replace('0', result.title) + result.title + '</a>';
+                });
+                searchResultsDiv.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

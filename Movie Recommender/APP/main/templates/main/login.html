@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>  
+        {% endfor %}
+    {% endif %}
+    <h1>Login</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <label for="username">Username: </label>
+            <input type="text" name="username">
+        </div>
+        <div class="container">
+            <label for="signin-password">Password: </label>
+            <input type="password" name="signin-password">
+        </div>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <span>New User? </span><a href="{% url 'main:Register' %}">Register</a>
+</body>
+</html>

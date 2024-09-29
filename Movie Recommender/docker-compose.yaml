@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./API
+    
+  app:
+    build: ./APP
+    volumes:
+      # - './APP:/app'  # Bind Mount
+      - database:/app/database # Named Volume
+    ports:
+      - '8000:8000'
+    depends_on:
+      - api
+    
+volumes:
+  database:

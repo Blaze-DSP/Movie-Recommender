@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>  
+        {% endfor %}
+    {% endif %}
+    <h1>OTP</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <label for="otp">OTP: </label>
+            <input type="number" name="otp" required>
+        </div>
+        <span>Did not recieve OTP?</span> <a style="text-decoration: underline; color: blue;" onclick="Resend()">Resend OTP</a>
+        <br>
+        <br>
+        <button type="submit">Verify OTP</button>
+    </form>
+
+    <script>
+        function Resend(){
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>

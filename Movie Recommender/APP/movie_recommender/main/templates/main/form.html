@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+</head>
+<body>
+  <div style="text-align: right; padding-right: 10%; float: right;"><a href="{% url 'main:Logout' %}">Logout</a></div>
+  <h1>Select Preferences</h1> 
+  <form action="" method="post">
+      {% csrf_token %}
+      <div class="range-container">
+          <label for="Animation">Animation: </label>
+          <input type="range" name="Animation" min="0" max="5" step="0.5" value="0" class="range-input">
+          <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Comedy">Comedy: </label>
+        <input type="range" name="Comedy" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Children">Children: </label>
+        <input type="range" name="Children" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Adventure">Adventure: </label>
+        <input type="range" name="Adventure" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Fantasy">Fantasy: </label>
+        <input type="range" name="Fantasy" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Romance">Romance: </label>
+        <input type="range" name="Romance" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Drama">Drama: </label>
+        <input type="range" name="Drama" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Action">Action: </label>
+        <input type="range" name="Action" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Crime">Crime: </label>
+        <input type="range" name="Crime" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Thriller">Thriller: </label>
+        <input type="range" name="Thriller" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Horror">Horror: </label>
+        <input type="range" name="Horror" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="IMAX">IMAX: </label>
+        <input type="range" name="IMAX" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Sci_Fi">Sci-Fi: </label>
+        <input type="range" name="Sci_Fi" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Mystery">Mystery: </label>
+        <input type="range" name="Mystery" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="War">War: </label>
+        <input type="range" name="War" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Musical">Musical: </label>
+        <input type="range" name="Musical" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Documentary">Documentary: </label>
+        <input type="range" name="Documentary" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Western">Western: </label>
+        <input type="range" name="Western" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <div class="range-container">
+        <label for="Film_Noir">Film-Noir: </label>
+        <input type="range" name="Film_Noir" min="0" max="5" step="0.5" value="0" class="range-input">
+        <span class="range-value">0</span>
+      </div>
+      <br>
+      <button type="submit">Submit</button>
+  </form>
+
+  <script>
+      const rangeContainers = document.querySelectorAll('.range-container');
+    
+      rangeContainers.forEach(container => {
+        var inputRange = container.querySelector('.range-input');
+        var rangeValue = container.querySelector('.range-value');
+    
+        inputRange.addEventListener('input', () => {
+          rangeValue.textContent = inputRange.value;
+        });
+  
+      });
+    </script>
+</body>
+</html>

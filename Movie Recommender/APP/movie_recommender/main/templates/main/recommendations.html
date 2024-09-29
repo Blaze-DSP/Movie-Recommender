@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: right; padding-right: 10%; float: right;"><a href="{% url 'main:Logout' %}">Logout</a></div>
+    <a href="{% url 'main:Home' %}">Home</a>
+    {% if movie_genres %}
+    <h1>Selected Genres:</h1>
+    <ul>
+        {% for genre in movie_genres %}
+        <li>{{genre}}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Top 10 Recommended Movies</h1>
+    <ul>
+        {% for movie in similar %}
+        <li>{{movie}}</li>
+        {% endfor %}
+    </ul>
+    {% elif movie %}
+    <h1>Movies Similar to {{movie}}</h1>
+    <ul>
+        {% for movie in similar %}
+        <li>{{movie}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+</body>
+</html>

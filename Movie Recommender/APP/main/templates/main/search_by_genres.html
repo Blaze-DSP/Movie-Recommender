@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div style="text-align: right; padding-right: 10%; float: right;"><a href="{% url 'main:Logout' %}">Logout</a></div>
+  <a href="{% url 'main:Home' %}">Home</a>
+  <h1>Select Genres:</h1>
+  <form action="" method="post">
+      {% csrf_token %}
+      <div class="container">
+          <label for="Animation">Animation: </label>
+          <input type="checkbox" name="Animation">
+      </div>
+      <div class="container">
+        <label for="Comedy">Comedy: </label>
+        <input type="checkbox" name="Comedy">
+      </div>
+      <div class="container">
+        <label for="Children">Children: </label>
+        <input type="checkbox" name="Children">
+      </div>
+      <div class="container">
+        <label for="Adventure">Adventure: </label>
+        <input type="checkbox" name="Adventure">
+      </div>
+      <div class="container">
+        <label for="Fantasy">Fantasy: </label>
+        <input type="checkbox" name="Fantasy">
+      </div>
+      <div class="container">
+        <label for="Romance">Romance: </label>
+        <input type="checkbox" name="Romance">
+      </div>
+      <div class="container">
+        <label for="Drama">Drama: </label>
+        <input type="checkbox" name="Drama">
+      </div>
+      <div class="container">
+        <label for="Action">Action: </label>
+        <input type="checkbox" name="Action">
+      </div>
+      <div class="container">
+        <label for="Crime">Crime: </label>
+        <input type="checkbox" name="Crime">
+      </div>
+      <div class="container">
+        <label for="Thriller">Thriller: </label>
+        <input type="checkbox" name="Thriller">
+      </div>
+      <div class="container">
+        <label for="Horror">Horror: </label>
+        <input type="checkbox" name="Horror">
+      </div>
+      <div class="container">
+        <label for="IMAX">IMAX: </label>
+        <input type="checkbox" name="IMAX">
+      </div>
+      <div class="container">
+        <label for="Sci_Fi">Sci-Fi: </label>
+        <input type="checkbox" name="Sci_Fi">
+      </div>
+      <div class="container">
+        <label for="Mystery">Mystery: </label>
+        <input type="checkbox" name="Mystery">
+      </div>
+      <div class="container">
+        <label for="War">War: </label>
+        <input type="checkbox" name="War">
+      </div>
+      <div class="container">
+        <label for="Musical">Musical: </label>
+        <input type="checkbox" name="Musical">
+      </div>
+      <div class="container">
+        <label for="Documentary">Documentary: </label>
+        <input type="checkbox" name="Documentary">
+      </div>
+      <div class="container">
+        <label for="Western">Western: </label>
+        <input type="checkbox" name="Western">
+      </div>
+      <div class="container">
+        <label for="Film_Noir">Film-Noir: </label>
+        <input type="checkbox" name="Film_Noir">
+      </div>
+      <br>
+      <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
